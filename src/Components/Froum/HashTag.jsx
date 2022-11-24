@@ -7,7 +7,7 @@ const HashTag = ({ForumHash}) => {
         <p className='text-[28px] font-[700] text-[#3E3E3E] py-3 text-center px-2 '>{ForumHash.header}</p>
         {ForumHash.tags?.map((item, index) => (
           <div key={index}>
-            <div className='border-y-2 p-2 '>
+            <div className='border-y-2 p-2'>
               <p className='text-blue font-[500] text-[20px]'>{item.hash}</p>
               <p className='text-[#4F4F4F] text-[20px] '>{item.postCount}</p>
             </div>

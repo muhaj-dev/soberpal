@@ -22,7 +22,7 @@ const PostFeed = ({posts}) => {
             </div>
           </div>
           <p className='font-[500] mt-8 text-[18px] tablet:text-[20px]'>{item.post}</p>
-          {item.hashs?.map((item, index) => (
+          {item?.hashs?.map((item, index) => (
             <div className='text-blue mt-2 flex flex-wrap gap-x-3 w-[80%] max-w-[360px] ' key={index}>
               <span>{item.hash1}</span>
               <span className=''>{item.hash2}</span>
@@ -30,13 +30,13 @@ const PostFeed = ({posts}) => {
             </div>
           ))}
           
-          <div className='flex mb-3 mt-2'>
-            <div className='text-blue mt-2' >
-              <img className='' src={item.imgPost[0].img1} alt="gg" />
+          <div className='flex mb-3 mt-2 '>
+            <div className='flex flex-col  text-blue mt-2' >
+              <img className='cursor-pointer' src={item?.imgPost[0]?.img1} alt="gg" />
             </div>
-            <div className='text-blue mt-2' >
-              <img src={item.imgPost[1]?.img2} alt="g" />
-              <img src={item.imgPost[2]?.img3} alt="g" />
+            <div className='flex flex-col text-blue mt-2' >
+              <img className='cursor-pointer' src={item?.imgPost[1]?.img2} alt="g" />
+              <img className='cursor-pointer' src={item?.imgPost[2]?.img3} alt="g" />
             </div>
           </div>
           <Input
@@ -48,7 +48,7 @@ const PostFeed = ({posts}) => {
 
           {item.replies?.map((item, index) => (
             <div key={index}>
-              <p className='my-3 text-[18px] tablet:text-[20px] font-[500]'>Replies to post (2)</p>
+              <p className='my-3 text-[18px] tablet:text-[20px] font-[500]'>Replies to post (1)</p>
               <div className='flex items-center'>
                 <img className='h-[48px] w-[48px] font-[500]' src={item.avatar} alt="a" />
                 <div className='ml-4 flex flex-col justify-between'>
