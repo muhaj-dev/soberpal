@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import avatart from "../../assets/Ellipse.png"
 import Telegram from "../../assets/telegram.svg"
+import Modal from '../../Modal/Modal'
 import Input from '../../UI/Input'
-import Modal from '../modal/Modal'
 
 const PostInput = ({postFeed}) => {
   const [showModal, setShowModal] = useState(false)
@@ -13,7 +13,7 @@ const PostInput = ({postFeed}) => {
         <img src={avatart} alt="ff" className='h-[65px] w-[65px] tablet:w-[85px] tablet:h-[85px] ' />
         <div className='w-full ml-3  tablet:ml-[16px]'>
           <button
-          className='w-full'
+          className='w-full cursor-pointer'
             onClick={() => setShowModal(true)}
           >
             <Input
@@ -23,8 +23,9 @@ const PostInput = ({postFeed}) => {
               icon={Telegram}
             />
           </button>
-          {showModal && <Modal setShowModal={setShowModal} />}
           
+          {showModal && <Modal setShowModal={setShowModal} />}
+
           <div className='hidden tablet:flex mt-4 justify-between '>
             {postFeed?.map((item) => (
               <div key={item.name} className=" cursor-pointer flex w-full  max-w-[524px] items-center ">
