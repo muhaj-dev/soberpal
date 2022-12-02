@@ -1,20 +1,20 @@
-FROM node:11.1.0-alpine as build
 
-WORKDIR /app
+FROM node:16.18.1 as builder-step
 
-COPY package*.json /app/
+WORKDIR /frontend
 
-RUN npm install
+COPY package*.json /frontend/
 
-COPY ./ /app/
+RUN npm install 
+
+COPY . /frontend/
 
 RUN npm run build
 
-FROM nginx:1.15.8-alpine
+RUN npm install -g serve
 
-COPY --from=build /app/build /usr/share/nginx/html
-COPY --from=build /app/nginx/nginx.conf /etc/nginx/nginx.conf
+CMD ["serve", "-s", "build"]
 
-EXPOSE 3000
+# EXPOSE 3000
 
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+# CMD ["npm", "start"]
